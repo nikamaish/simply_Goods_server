@@ -83,15 +83,15 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
           </div>
 
             <div className="itemContainer">
-            <FontAwesomeIcon icon={faHouseUser} size='2x' />
+            <FontAwesomeIcon icon={faHouseUser} size='2x' className='ficons' />
           </div>
 
           <div className="itemContainer">
-          <FontAwesomeIcon icon={faCartArrowDown} size='2x' />
+          <FontAwesomeIcon icon={faCartArrowDown} size='2x' className='ficons'/>
           </div>  
 
           <div className="itemContainer">
-          <FontAwesomeIcon icon={faUserPen} size='2x' />
+          <FontAwesomeIcon icon={faUserPen} size='2x' className='ficons'/>
           </div>
         </div>
 

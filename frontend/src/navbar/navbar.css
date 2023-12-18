@@ -50,10 +50,14 @@
       display: none;
     }
 
-    .icon {
+    /* .icon {
       color: black;
       padding-top: 10px;
-      margin-right: 1vh; /* Adjust the margin between icon and span */
+      margin-right: 1vh; 
+    } */
+
+    .ficons{
+      width: 30px;
     }
 
     span {
