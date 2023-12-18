@@ -32,6 +32,11 @@
     justify-content: flex-start;
     text-decoration: none;
     color: yellow;
+    font-size: 30px;
+
+    @media only screen and (max-width: 800px) {
+      font-size: 25px;
+    }
   }
 
   .itemContainer {
