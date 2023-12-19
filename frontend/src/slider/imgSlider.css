@@ -1,4 +1,4 @@
-/* imgSlider.css */
+/* ImgSlider.css */
 
 /* Reset some default styles */
 body, html {
@@ -9,11 +9,79 @@ body, html {
 
 /* Set the styles for the carousel container */
 .carousel-container {
-  width: 100%;
-  overflow: hidden;
   position: relative;
   margin: 20px auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Set the styles for the rectangle container overlay */
+.rectangle-container {
+  position: absolute;
+  top: 55vh; /* Adjust the distance from the top as needed */
+  left: 20px; /* Adjust the distance from the left as needed */
+  width: calc(100% - 40px); /* Adjust the width based on the margins */
+  height: calc(100vh - 40px); /* Adjust the height based on the margins */
+  /* background-color: #ffffe4; */
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+  font-size: 18px;
+  z-index: 2; /* Set a higher z-index to appear above the carousel */
+}
+.rectangle-container h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.eproduct-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.eproduct-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Updated box-shadow property */
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 10px;
+  margin: 10px;
+}
+
+.eproduct-name {
+  font-size: 15px;
+  padding-top: 20px;
+  color: rgb(65, 64, 64);
+  text-align: center;
+}
+
+.eproduct-price{
+  font-size: 16px;
+  /* margin-bottom: 10px; */
+  color: black;
+  text-align: center;
+}
+
+.eproduct-card img{
+  width: 70%;
+  height: 70%;
+}
+
+@media screen and (max-width: 800px) {
+  .rectangle-container {
+    top: 20vh; /* Adjust the distance from the top as needed */
+    height: calc(60vh - 40px); /* Adjust the height based on the margins */
+  }
 }
 
 /* Set the styles for the carousel itself */
@@ -22,24 +90,17 @@ body, html {
   height: 98vh; /* Adjust the height as needed */
 }
 
-/* Set the styles for each carousel item */
-.carousel-item {
+/* Styles for the carousel items */
+.carousel-item img {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  object-fit: cover;
 }
 
-/* Set the styles for each image inside a carousel item */
-.carousel-item img {
-  width: 100%; /* Adjust the width to make the image wider */
-  height: 100%;
-  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-}
-
-/* Set the styles for the carousel control buttons */
+/* Styles for the carousel control buttons */
 .carousel-control-prev, .carousel-control-next {
   position: absolute;
-  top:37%; /* Adjust the distance from the top as needed */
+  top: 30%;
   transform: translateY(-50%);
 }
 
@@ -51,13 +112,13 @@ body, html {
 
 @media screen and (max-width: 300px) {
   .carousel {
-      padding-top: 50px;
-      height: 25vh; /* Adjust the height as needed */
+    padding-top: 50px;
+    height: 25vh; /* Adjust the height as needed */
   }
 }
 
 @media screen and (max-width: 800px) {
   .carousel-control-prev, .carousel-control-next {
-      top: -12%; /* Adjust the distance from the top as needed */
+    top: -12%; /* Adjust the distance from the top as needed */
   }
 }
