@@ -2,54 +2,62 @@
 
 /* Reset some default styles */
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Set the styles for the carousel container */
-  .carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin: 20px auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Set the styles for the carousel itself */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Set the styles for the carousel container */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Set the styles for the carousel itself */
+.carousel {
+  padding-top: 50px;
+  height: 98vh; /* Adjust the height as needed */
+}
+
+/* Set the styles for each carousel item */
+.carousel-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Set the styles for each image inside a carousel item */
+.carousel-item img {
+  width: 100%; /* Adjust the width to make the image wider */
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+}
+
+/* Set the styles for the carousel control buttons */
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 50%; /* Adjust the distance from the top as needed */
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  transform: translateY(-50%);
+}
+
+/* Optionally, you can add additional styles for the buttons, such as color and size */
+
+@media screen and (max-width: 300px) {
   .carousel {
-    padding-top: 50px;
-    height: 98vh; /* Adjust the height as needed */
+      padding-top: 50px;
+      height: 25vh; /* Adjust the height as needed */
   }
-  
-  /* Set the styles for each carousel item */
-  .carousel-item {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  /* Set the styles for each image inside a carousel item */
-  .carousel-item img {
-    width: 100%; /* Adjust the width to make the image wider */
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-  }
-  
-  /* Set the styles for the carousel control buttons */
+}
+
+@media screen and (max-width: 800px) {
   .carousel-control-prev, .carousel-control-next {
-    top: -22%; /* Adjust the distance from the top as needed */
+      top: -12%; /* Adjust the distance from the top as needed */
   }
-  
-  .carousel-control-prev-icon, .carousel-control-next-icon {
-    transform: translateY(-50%);
-  }
-  
-  /* Optionally, you can add additional styles for the buttons, such as color and size */
-  
-  @media screen and (max-width: 300px) {
-    .carousel {
-        padding-top: 50px;
-        height: 25vh; /* Adjust the height as needed */
-      }
-  }
+}
