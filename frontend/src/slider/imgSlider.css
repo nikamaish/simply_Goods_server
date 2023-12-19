@@ -39,7 +39,7 @@ body, html {
 /* Set the styles for the carousel control buttons */
 .carousel-control-prev, .carousel-control-next {
   position: absolute;
-  top: 50%; /* Adjust the distance from the top as needed */
+  top:37%; /* Adjust the distance from the top as needed */
   transform: translateY(-50%);
 }
 

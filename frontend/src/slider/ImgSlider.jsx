@@ -32,7 +32,7 @@ const ImgSlider = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://images-eu.ssl-images-amazon.com/images/W/MEDIAX_792452-T1/images/G/31/img2020/img21/apparelGW/dec23atf/unrec/mfd/WA_ETH_3000._CB571190800_.jpg"
+            src="https://images-eu.ssl-images-amazon.com/images/W/MEDIAX_792452-T1/images/G/31/img22/wearables/BAU_GW/New_launchGW_tallhero_3000x1200._CB597027259_.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
