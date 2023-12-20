@@ -14,19 +14,22 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    overflow: hidden;
     font-size: 18px;
   }
   .rectangle-container h1 {
     font-size: 24px;
     margin-top: -10px;
     /* margin-bottom: 10px; */
-    color: black;
+    
+    color: black;   
   }
   
   .eproduct-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: nowrap; /* Ensure cards are in a single row */
+    overflow: hidden; /* Hide overflow to enable sliding effect */
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
   }
   
   .eproduct-card {
@@ -70,6 +73,31 @@
     transform: scale(1.1);
   }
 
+  .eproduct-prev,
+  .eproduct-next {
+    position: absolute;
+    top: 100%;
+    transform: translateY(-50%);
+    background-color: #007bff; /* Adjust the background color */
+    color: #fff; /* Adjust the text color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .eproduct-prev {
+    left: 10px; /* Adjust the left offset for the 'Prev' button */
+  }
+  
+  .eproduct-next {
+    right: 10px; /* Adjust the right offset for the 'Next' button */
+  }
+
+  .eproduct-prev:hover,
+  .eproduct-next:hover {
+  background-color: #0056b3; /* Adjust the background color on hover */
+}
 
   @media screen and (max-width: 800px) {
     .eproduct-container {

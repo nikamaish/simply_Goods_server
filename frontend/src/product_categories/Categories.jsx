@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import './categories.css'
 
 const Categories = () => {
@@ -23,32 +24,53 @@ const Categories = () => {
         'name': 'Premium Powerbanks',
         'img':'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
         'price': '179',
-      }
-    
+      },
+      {
+        'name': 'Premium Powerbanks',
+        'img':'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
+        'price': '179',
+      }  
     ]
+    const [currentPosition, setCurrentPosition] = useState(0);
+
+    const slideCards = (direction) => {
+        const eproductContainer = document.querySelector('.eproduct-container');
+        const eproductCard = document.querySelector('.eproduct-card');
+        const slideWidth = eproductCard.offsetWidth + 10; // Adjust the value based on your card's width and margin
+    
+        let newPosition = currentPosition + direction * slideWidth;
+        if (newPosition < 0) newPosition = 0;
+    
+        eproductContainer.style.transform = `translateX(-${newPosition}px)`;
+        setCurrentPosition(newPosition);
+    }
+
 
 
   return (
     <div>
-       <div className="rectangle-container">
-      {/* <div className='electronics'> */}
+    <div className="rectangle-container">
       <h1>Best Of Electronics</h1>
 
       <div className="eproduct-container">
-        {electronics.map((product,index)=>(
+        {electronics.map((product, index) => (
           <div key={index} className="eproduct-card">
-          <img src={product.img} alt={product.name} className="eproduct-image" />
-          <div className="eproduct-details">
-            <p className="eproduct-name">{product.name}</p>
-            <p className="eproduct-price">From ₹ {product.price}</p>
-            {/* rupee sign ctrl alt 4 */}
+            <img src={product.img} alt={product.name} className="eproduct-image" />
+            <div className="eproduct-details">
+              <p className="eproduct-name">{product.name}</p>
+              <p className="eproduct-price">From ₹ {product.price}</p>
+            </div>
           </div>
-        </div>
         ))}
-        </div>
-      {/* </div> */}
+      </div>
+      <button className="eproduct-prev" onClick={() => slideCards(-1)}>
+        Prev
+      </button>
+      <button className="eproduct-next" onClick={() => slideCards(1)}>
+        Next
+      </button>
     </div>
-    </div>
+  </div>
   )
 }
 
