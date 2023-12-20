@@ -29,7 +29,17 @@ const Categories = () => {
         'name': 'Premium Powerbanks',
         'img':'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
         'price': '179',
-      }  
+      },
+      {
+        'name': 'Premium Powerbanks',
+        'img':'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
+        'price': '179',
+      },
+      {
+        'name': 'Premium Powerbanks',
+        'img':'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
+        'price': '179',
+      }
     ]
     const [currentPosition, setCurrentPosition] = useState(0);
 
@@ -50,8 +60,9 @@ const Categories = () => {
   return (
     <div>
     <div className="rectangle-container">
+        <div className="electronics">
       <h1>Best Of Electronics</h1>
-
+      </div>
       <div className="eproduct-container">
         {electronics.map((product, index) => (
           <div key={index} className="eproduct-card">
