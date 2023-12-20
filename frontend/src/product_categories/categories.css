@@ -82,10 +82,21 @@
       width: 40%; /* Adjust the width for small devices */
     }
     .eproduct-card img{
-        width: 50%;
+        width: 45%;
     }
     .eproduct-name, .eproduct-price{
         font-size: 15px;
+    }
+
+  }
+
+  @media screen and (max-width: 800px) {
+    .rectangle-container {
+      top: 20vh; /* Adjust the distance from the top as needed */
+      height: calc(75vh - 40px); /* Adjust the height based on the margins */
+    }
+    .rectangle-container h1{
+        font-size: 20px;
     }
   }
   

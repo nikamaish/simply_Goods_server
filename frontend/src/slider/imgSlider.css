@@ -48,23 +48,25 @@ body, html {
 
 /* Optionally, you can add additional styles for the buttons, such as color and size */
 
-@media screen and (max-width: 800px) {
-  .rectangle-container {
-    top: 20vh; /* Adjust the distance from the top as needed */
-    height: calc(60vh - 40px); /* Adjust the height based on the margins */
-  }
-}
+
 
 @media screen and (max-width: 300px) {
-  .carousel {
+  /* .carousel {
     padding-top: 50px;
-    height: 25vh; /* Adjust the height as needed */
-  }
+    height: 25vh; 
+  } */
 }
+
 
 @media screen and (max-width: 800px) {
   .carousel-control-prev,
   .carousel-control-next {
     top: -12%; /* Adjust the distance from the top as needed */
+  }
+  .carousel-item img{
+    height: 12vh;
+  }
+  .carousel {
+    height: 18vh;
   }
 }
