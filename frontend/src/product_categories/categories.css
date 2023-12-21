@@ -145,6 +145,15 @@
       display: flex;
       justify-content: center;
       margin-top: 15px;
+      color:#fff;
+      background-color:#007bff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+
+    }
+    .show-more-btn:hover{
+      background-color:#0056b3;
     }
 
     .eproduct-container.show-scrollbar {

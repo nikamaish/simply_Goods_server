@@ -65,7 +65,7 @@ const Categories = () => {
       newPosition = (totalCards - totalVisibleCards) * cardWidth;
     }
 
-    eproductContainer.style.transform = 'transform 5s ease';
+    // eproductContainer.style.transform = 'transform 15s ease';
     eproductContainer.style.transform = `translateX(-${newPosition}px)`;
     setCurrentPosition(newPosition);
   };
