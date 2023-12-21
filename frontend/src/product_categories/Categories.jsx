@@ -42,6 +42,19 @@ const Categories = () => {
     },
   ];
 
+
+  const beautyFoodToys = [{
+
+      name:'Cycle',
+      img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVUPjylIIgof5-4stlP6rwYhDE1mrjTOnrwt_WJdc2jcT1tyyAU_MHj53dJ25OcPwTHKQ&usqp=CAU',
+      price:'Up to 40% Off',
+
+
+  }]
+  
+
+
+
   const initialVisibleCards = 4;
   const [visibleCards, setVisibleCards] = useState(initialVisibleCards);
   const [totalCards, setTotalCards] = useState(electronics.length);

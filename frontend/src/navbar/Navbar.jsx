@@ -59,6 +59,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUserPen, faCartArrowDown, faBars, faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
+import { Link } from 'react-router-dom';
  
 // import { Person, Mail } from "@material-ui/icons"
 
@@ -73,9 +74,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
       <div className="wrapper">
         <div className="left">
           <div className="logo">
-          <a href="/" >
-          SimplyGoods
-          </a>
+          <Link to='/'>SimplyGoods</Link>
           </div>
           <div className="itemContainer">
           <input type="search" placeholder='Search Products' />
