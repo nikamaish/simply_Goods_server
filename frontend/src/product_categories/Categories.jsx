@@ -46,6 +46,8 @@ const Categories = () => {
   const [visibleCards, setVisibleCards] = useState(initialVisibleCards);
   const [totalCards, setTotalCards] = useState(electronics.length);
   const [currentPosition, setCurrentPosition] = useState(0);
+  const [showMoreClicked, setShowMoreClicked] = useState(false);
+
 
   const slideCards = (direction) => {
     const eproductContainer = document.querySelector('.eproduct-container');
@@ -69,8 +71,20 @@ const Categories = () => {
   };
 
   const handleShowMore = () => {
-    setVisibleCards((prevVisibleCards) => Math.min(prevVisibleCards + 4, totalCards));
+    const cardsPerPage = Math.floor(
+      document.querySelector('.eproduct-container').offsetWidth /
+        document.querySelector('.eproduct-card').offsetWidth
+    );
+  
+    setVisibleCards((prevVisibleCards) => Math.min(prevVisibleCards + cardsPerPage, totalCards));
+    setShowMoreClicked(true);
+  
+    const eproductContainer = document.querySelector('.eproduct-container');
+    if (eproductContainer) {
+      eproductContainer.classList.add('show-scrollbar');
+    }
   };
+  
 
   return (
     <div>
