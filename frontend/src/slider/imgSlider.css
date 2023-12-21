@@ -61,7 +61,7 @@ body, html {
 @media screen and (max-width: 800px) {
   .carousel-control-prev,
   .carousel-control-next {
-    top: -12%; /* Adjust the distance from the top as needed */
+    top: 70%; /* Adjust the distance from the top as needed */
   }
   .carousel-item img{
     height: 12vh;
