@@ -86,11 +86,12 @@
   }
 
   .eproduct-prev {
-    left: 10px; /* Adjust the left offset for the 'Prev' button */
-  }
+    left: 10px;
+    margin-left: 15px; 
+    }
   
   .eproduct-next {
-    right: 10px; /* Adjust the right offset for the 'Next' button */
+    right: 10px; 
   }
 
   .eproduct-prev:hover,
@@ -98,11 +99,18 @@
   background-color: #0056b3; /* Adjust the background color on hover */
 }
 
+@media screen and (min-width: 800px){
+.show-more-btn{
+  display: none;
+}
+}
+
   @media screen and (max-width: 800px) {
     .eproduct-container {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      scroll-behavior: smooth;
     }
   
     .eproduct-card {
@@ -119,13 +127,35 @@
 
   @media screen and (max-width: 800px) {
     .rectangle-container {
-      height: calc(75vh - 40px); /* Adjust the height based on the margins */
+      height: calc(80vh - 40px); /* Adjust the height based on the margins */
+      align-items: center;
     }
     .electronics h1{
         font-size: 20px;
+        margin-bottom: 10px;
     }
     .eproduct-next, .eproduct-prev{
         display: none;
+    }
+    .show-more-btn{
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1; /* Background color of the track */
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #888; /* Color of the thumb */
+      border-radius: 5px; /* Rounded corners of the thumb */
+    }
+    * {
+      scrollbar-color: #888 #f1f1f1; /* thumb color and track color */
+      scrollbar-width: thin; /* width of the thumb */
     }
   }
   

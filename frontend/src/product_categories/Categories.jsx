@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './categories.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Categories = () => {
   const electronics = [
@@ -43,23 +45,30 @@ const Categories = () => {
   const initialVisibleCards = 4;
   const [visibleCards, setVisibleCards] = useState(initialVisibleCards);
   const [totalCards, setTotalCards] = useState(electronics.length);
-
   const [currentPosition, setCurrentPosition] = useState(0);
 
   const slideCards = (direction) => {
     const eproductContainer = document.querySelector('.eproduct-container');
     const eproductCard = document.querySelector('.eproduct-card');
-    const slideWidth = eproductCard.offsetWidth + 10;
+    const cardWidth = eproductCard.offsetWidth + 10;
 
-    let newPosition = currentPosition + direction * slideWidth;
-    if (newPosition < 0) newPosition = 0;
+    const cardsPerPage = Math.floor(eproductContainer.offsetWidth / cardWidth);
+    const totalVisibleCards = Math.min(visibleCards, totalCards);
+
+    let newPosition = currentPosition + direction * cardWidth * cardsPerPage;
+
+    if (newPosition < 0) {
+      newPosition = 0;
+    } else if (newPosition > (totalCards - totalVisibleCards) * cardWidth) {
+      newPosition = (totalCards - totalVisibleCards) * cardWidth;
+    }
 
     eproductContainer.style.transform = `translateX(-${newPosition}px)`;
     setCurrentPosition(newPosition);
   };
 
   const handleShowMore = () => {
-    setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
+    setVisibleCards((prevVisibleCards) => Math.min(prevVisibleCards + 4, totalCards));
   };
 
   return (
@@ -69,7 +78,7 @@ const Categories = () => {
           <h1>Best Of Electronics</h1>
         </div>
         <div className="eproduct-container">
-          {electronics.slice(0, visibleCards).map((product, index) => (
+          {electronics.map((product, index) => (
             <div key={index} className="eproduct-card">
               <img src={product.img} alt={product.name} className="eproduct-image" />
               <div className="eproduct-details">
@@ -85,10 +94,13 @@ const Categories = () => {
           </button>
         )}
         <button className="eproduct-prev" onClick={() => slideCards(-1)}>
+          <FontAwesomeIcon icon={faAngleLeft} size="xl" style={{ paddingRight: '10px' }} />
           Prev
         </button>
+
         <button className="eproduct-next" onClick={() => slideCards(1)}>
           Next
+          <FontAwesomeIcon icon={faAngleRight} size="xl" style={{ paddingLeft: '10px' }} />
         </button>
       </div>
     </div>
