@@ -33,9 +33,11 @@
     text-decoration: none;
     color: yellow;
     font-size: 30px;
+    font-family: 'Lora', serif;
 
     @media only screen and (max-width: 930px) {
       font-size: 25px;
+      font-family: 'Lora', serif;
     }
   }
 
