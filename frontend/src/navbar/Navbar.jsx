@@ -74,7 +74,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
       <div className="wrapper">
         <div className="left">
           <div className="logo">
-          <Link to='/'>SimplyGoods</Link>
+          <Link to='/ '>SimplyGoods</Link>
           </div>
           <div className="itemContainer">
           <input type="search" placeholder='Search Products' />
@@ -82,7 +82,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
           </div>
 
             <div className="itemContainer">
-            <FontAwesomeIcon icon={faHouseUser} size='2x' className='ficons' />
+            <Link to='/'><FontAwesomeIcon icon={faHouseUser} size='2x' className='ficons' /></Link>
           </div>
 
           <div className="itemContainer">
@@ -90,7 +90,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
           </div>  
 
           <div className="itemContainer">
-          <FontAwesomeIcon icon={faUserPen} size='2x' className='ficons'/>
+          <Link to ='/signup'><FontAwesomeIcon icon={faUserPen} size='2x' className='ficons'/></Link>
           </div>
         </div>
 
