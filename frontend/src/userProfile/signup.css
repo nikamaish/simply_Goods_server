@@ -71,3 +71,10 @@
   .signup form button:hover{
     background-color:rgb(255, 255, 21);
   }
+  .lacc{
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+  }

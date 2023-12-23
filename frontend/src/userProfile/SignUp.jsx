@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; // Use solid icons for Font Awesome
-
+import { Link } from 'react-router-dom';
 import './signup.css';
 
 const SignUp = () => {
@@ -33,7 +33,8 @@ const SignUp = () => {
           />
           <button>Sign Up</button>
           <p>
-            Already have an account? <a href="#">Log in</a>
+            Already have an account? 
+                <Link to='/login' className='lacc'>Log in</Link>
           </p>
         </form>
       </div>
