@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';  
 import { useNavigate } from 'react-router-dom';
+import MainProduct from '../mainProduct/MainProduct';
 
 const Categories = () => {
   const electronics = [
@@ -56,8 +57,8 @@ const Categories = () => {
 
   const navigate = useNavigate();
   const handleProductClick = (index) => {
-    navigate(`/MainProduct/${index}`);
-  };  
+    navigate(`/products/${index}`);
+  };
 
   
 
@@ -106,6 +107,8 @@ const Categories = () => {
       eproductContainer.classList.add('show-scrollbar');
     }
   };
+
+  
   
 
 

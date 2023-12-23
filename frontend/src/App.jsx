@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './userProfile/SignUp'; 
 import Login from './userProfile/Login';
 import MainPage from './mainpage/MainPage';
+import MainProduct from './mainProduct/MainProduct';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -21,6 +22,8 @@ const App = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/login" element={<Login/>} />
+        <Route path="/products/:productId" element={<MainProduct />} />
+
         </Routes>
 
       </Router>
