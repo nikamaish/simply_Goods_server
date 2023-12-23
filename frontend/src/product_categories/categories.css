@@ -61,6 +61,10 @@
     margin-top: -10px;
   }
   
+  .eproduct-container a { 
+    /* this is for link */
+    text-decoration: none;
+  }
   
   .eproduct-card img{
     width: 60%;

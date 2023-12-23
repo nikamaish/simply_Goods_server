@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './categories.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';  
+import { useNavigate } from 'react-router-dom';
 
 const Categories = () => {
   const electronics = [
@@ -51,6 +53,12 @@ const Categories = () => {
 
 
   }]
+
+  const navigate = useNavigate();
+  const handleProductClick = (index) => {
+    navigate(`/MainProduct/${index}`);
+  };  
+
   
 
 
@@ -83,6 +91,7 @@ const Categories = () => {
     setCurrentPosition(newPosition);
   };
 
+
   const handleShowMore = () => {
     const cardsPerPage = Math.floor(
       document.querySelector('.eproduct-container').offsetWidth /
@@ -99,6 +108,7 @@ const Categories = () => {
   };
   
 
+
   return (
     <div>
       <div className="rectangle-container">
@@ -106,16 +116,18 @@ const Categories = () => {
           <h1>Best Of Electronics</h1>
         </div>
         <div className="eproduct-container">
-          {electronics.map((product, index) => (
-            <div key={index} className="eproduct-card">
-              <img src={product.img} alt={product.name} className="eproduct-image" />
-              <div className="eproduct-details">
-                <p className="eproduct-name">{product.name}</p>
-                <p className="eproduct-price">From ₹ {product.price}</p>
-              </div>
-            </div>
-          ))}
+      {electronics.map((product, index) => (
+        <div key={index} className="eproduct-card" onClick={() => handleProductClick(index)}>
+          <img src={product.img} alt={product.name} className="eproduct-image" />
+          <div className="eproduct-details">
+            <p className="eproduct-name">{product.name}</p>
+            <p className="eproduct-price">From ₹ {product.price}</p>
+          </div>
         </div>
+      ))}
+    </div>
+
+
         {visibleCards < totalCards && (
           <button className="show-more-btn" onClick={handleShowMore}>
             Show More
@@ -130,6 +142,7 @@ const Categories = () => {
           Next
           <FontAwesomeIcon icon={faAngleRight} size="xl" style={{ paddingLeft: '10px' }} />
         </button>
+        
       </div>
     </div>
   );
