@@ -14,10 +14,6 @@ const SignUp = () => {
   const [passwordMatch, setPasswordMatch] = useState(true);
 
 
-
-
-
-
   const handlePasswordChange = (e) => {
     // Extract the password entered by the user from the event object
     const password = e.target.value;
@@ -59,6 +55,7 @@ const SignUp = () => {
 
 
 <div className="Password-icon" onClick={() => setShowPassword(!showPassword)}>
+    {/* click then opposite of initial will display  */}
 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
 {/* The icon prop is set based on the showPassword state. If showPassword is true, it uses the "faEyeSlash" icon; otherwise, it uses the "faEye" icon. */}
 </div>
@@ -70,12 +67,22 @@ const SignUp = () => {
             type={showPassword ? 'text' : 'password'}
             placeholder='Confirm Password'
             onChange={handleConfirmPasswordChange}
-            value={confirmPassword}
-          />
-          {!passwordMatch && password !== '' && confirmPassword !== '' && (
-            <p style={{ color: 'red' }}>Passwords do not match. Please check again.</p>
-          )}
+            value={confirmPassword}/>
+          
+{/* !passwordMatch:
+This part checks if the passwordMatch state is false. If the passwords do not match, passwordMatch is set to false, and this condition becomes true.
+password !== '':
+This part checks if the password state is not an empty string. It ensures that the user has entered a password in the "Password" input field.
+confirmPassword !== '':
+This part checks if the confirmPassword state is not an empty string. It ensures that the user has entered a confirmation password in the "Confirm Password" input field. */}
+
+          {!passwordMatch && password !== '' && confirmPassword !== '' &&
+          (<p style={{ color: 'red' }}>Passwords do not match. Please check again.</p>)}
+
           <button disabled={!passwordMatch}>Sign Up</button>
+          {/* If passwordMatch is false, the disabled attribute is set to true, which means the button is disabled. */}
+          {/* If passwordMatch is true (meaning the passwords match), the disabled attribute is set to false, and the button is not disabled. */}
+
           <p>
             Already have an account? 
             <Link to='/login' className='lacc'>Log in</Link>
