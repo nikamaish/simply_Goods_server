@@ -1,59 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
-import './mainProduct.css';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './mainProduct.css';
 
-const MainProduct = () => {
-  const [priceRange, setPriceRange] = useState([0, 1000]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  const electronics = [
-    {
-      id: 1,
-      name: 'Pendrives and SD cards',
-      img: 'https://purepng.com/public/uploads/large/purepng.com-sandisk-usb-flash-pen-driveelectronics-pen-drive-usb-9415246650490ar6r.png',
-      price: 289,
-    },
-    // Add more electronic products as needed
-  ];
-
-  const { index } = useParams();
+const MainProduct = ({ products }) => {
+  const { productId } = useParams();
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    // Filter products when the priceRange changes
-    const filtered = electronics.filter((product) => {
-      const productPrice = product.price;
-      return productPrice >= priceRange[0] && productPrice <= priceRange[1];
-    });
+    // Find the selected product based on productId
+    const product = products.find((p) => p.id === parseInt(productId, 10));
+    setSelectedProduct(product);
+  }, [productId, products]);
 
-    setFilteredProducts(filtered);
-  }, [priceRange]);
-
-  const handlePriceChange = (range) => {
-    setPriceRange(range);
-  };
+  if (!selectedProduct) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <div className="sidebar">
-      <h2>Filters</h2>
-      <div>
-        <label>Price Range:</label>
-        <Slider range min={0} max={1000} value={priceRange} onChange={handlePriceChange} />
-        <p>
-          Price: ₹ {priceRange[0]} - ₹ {priceRange[1]}
-        </p>
-      </div>
-
-      <div>
-        <h2>Filtered Products</h2>
-        {filteredProducts.map((product) => (
-          <div key={product.id}>
-            <p>{product.name}</p>
-            <p>Price: ₹{product.price}</p>
-            {/* Add other product details as needed */}
-          </div>
-        ))}
+    <div>
+      <h1>Main Product</h1>
+      <div className="product-card">
+        <img src={selectedProduct.img} alt={selectedProduct.name} />
+        <div className="product-details">
+          <h2>{selectedProduct.name}</h2>
+          <p>Price: ₹ {selectedProduct.price}</p>
+          {/* Add other product details, e.g., stars */}
+          <div className="stars">Stars: {selectedProduct.stars}</div>
+        </div>
       </div>
     </div>
   );
