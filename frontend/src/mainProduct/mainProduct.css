@@ -31,16 +31,61 @@
   /* Add more styles as needed */
 
   
+.product-cards{
+  display: flex;
+  flex-direction: row;
+}
+
 .product-card{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 20%;
+  /* align-items: center; */
+  width: 18%;
   height: 350px;
   margin: 10px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover{
+  cursor: pointer;
+}
+
+.product-card h2{
+  font-size: 1em;
+}
+.product-card:hover h2{
+ color: blue;
+}
+
+.priceOff s{
+  color: #8c8c8c;
+  font-size: 0.9em;
+
+}
+.stars{
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  background-color: green;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.priceOff{
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-card img{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  /* mix-blend-mode:lighten; */
+  border-radius: 4px;
 }

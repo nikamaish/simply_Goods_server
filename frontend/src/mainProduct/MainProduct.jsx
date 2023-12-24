@@ -1,32 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+
 import './mainProduct.css';
 
 const MainProduct = ({ products }) => {
   const { productId } = useParams();
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    // Find the selected product based on productId
-    const product = products.find((p) => p.id === parseInt(productId, 10));
-    setSelectedProduct(product);
+    // Filter products based on productId
+    const filtered = products.filter((p) => p.id === parseInt(productId, 10));
+    setFilteredProducts(filtered);
   }, [productId, products]);
 
-  if (!selectedProduct) {
+  if (filteredProducts.length === 0) {
     return <p>Loading...</p>;
   }
 
   return (
     <div>
       <h1>Main Product</h1>
-      <div className="product-card">
-        <img src={selectedProduct.img} alt={selectedProduct.name} />
-        <div className="product-details">
-          <h2>{selectedProduct.name}</h2>
-          <p>Price: ₹ {selectedProduct.price}</p>
-          {/* Add other product details, e.g., stars */}
-          <div className="stars">Stars: {selectedProduct.stars}</div>
-        </div>
+      <div className="product-cards">
+        {filteredProducts.map((product) => (
+          <div key={product.name} className="product-card">
+            <img src={product.img} alt={product.name} />
+            <div className="product-details">
+              <h2>{product.name}</h2>
+              <div className='priceOff'>
+                <p> ₹ {product.price}</p>
+                <s> ₹ {product.cancelPrice}</s>
+                <p>{product.off}</p>
+              </div>
+              {/* Display the number of stars as a digit with a single star icon */}
+              <div className="stars">
+                <FontAwesomeIcon icon={fasStar} style={{ color: 'white' }} /> {product.stars}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
