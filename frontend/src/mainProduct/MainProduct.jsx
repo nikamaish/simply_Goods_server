@@ -83,6 +83,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 import './mainProduct.css';
+import { size } from 'lodash';
 
 const MainProduct = ({ products }) => {
   const { productId } = useParams();
@@ -107,10 +108,11 @@ const MainProduct = ({ products }) => {
             <img src={product.img} alt={product.name} />
             <div className="product-details">
               <h2>{product.name}</h2>
+              <h3 style={{fontSize:'15px', color:'#8c8c8c'}}>{product.colorType}</h3>
               <div className='priceOff'>
-                <p> ₹ {product.price}</p>
-                <s> ₹ {product.cancelPrice}</s>
-                <p>{product.off}</p>
+               <b><p style={{fontSize:'20px'}}> ₹ {product.price}</p></b>
+                <s style={{fontSize:'16px'}}> ₹ {product.cancelPrice}</s>
+                <p style={{color:'rgb(7, 180, 7)', fontSize:'18px'}}>{product.off}</p>
               </div>
               {/* Display the number of stars as a digit with a single star icon */}
               <div className="stars">
