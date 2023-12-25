@@ -24,23 +24,23 @@ const Categories = () => {
       price: '179',
     },
     {
-      name: 'Premium Powerbanks',
+      name: 'Powerbanks',
       img: 'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
       price: '179',
     },
     {
-      name: 'Premium Powerbanks',
-      img: 'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
+      name: 'BenQ Monitors',
+      img: 'https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/w/2/f/cb282k-uhd-28-2023-um-pb2ss-001-acer-original-imagqhefn3jq85kp.jpeg?q=70',
       price: '179',
     },
     {
-      name: 'Premium Powerbanks',
-      img: 'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
+      name: 'Printers ',
+      img: 'https://rukminim2.flixcart.com/image/612/612/k4a7c7k0/printer/y/j/z/canon-e3370-original-imafn2wyyxjjvzd6.jpeg?q=70',
       price: '179',
     },
     {
-      name: 'Premium Powerbanks',
-      img: 'https://atlas-content-cdn.pixelsquid.com/stock-images/usb-power-bank-powerbank-G9GnBK2-600.jpg',
+      name: 'Monitor',
+      img: 'https://rukminim2.flixcart.com/image/312/312/kmp7ngw0/monitor/j/z/h/s2721hn-27-py0df-dell-original-imagfjphuywuh2a7.jpeg?q=70',
       price: '179',
     },
   ];
