@@ -8,14 +8,13 @@ const products = [
   { id: 1, name: 'Ergonomic Mouse', price: '189', img: 'https://example.com/ergonomic_mouse_image.jpg', stars: 4, off: '10% off', cancelPrice: '169' },
   // Add more cards as needed
   { id: 2, name: 'zebra', price: '169', img: 'https://example.com/zebra_image.jpg', stars: 5, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
-  { id: 3, name: 'Camera', price: '179', img: 'https://example.com/camera_image.jpg', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
+  { id: 3, name: 'Camera', price: '179', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPHqs-C8AYEAKtY8PmcpotDWbmVNx4Ra8Dlw&usqp=CAU', stars: 3, off: '10% off', cancelPrice: '199' },
 
 ];
 

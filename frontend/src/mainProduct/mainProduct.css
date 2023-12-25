@@ -1,7 +1,6 @@
-.main-product-container {
+/* .main-product-container {
     display: flex;
-    /* position: absolute; */
-  /* top: 13%; */
+   
   }  
   .filter-section{
     border: solid 1px #ddd;
@@ -10,12 +9,15 @@
    
    
    }
+*/
 
 .product-cards{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+  position: absolute;
+  top: 15%;
+} 
 
 .product-card{
   display: flex;
