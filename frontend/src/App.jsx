@@ -20,7 +20,10 @@ import products from './categoriesData/CategoriesData.jsx';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
-
+  const handleApplyFilters = (filters) => {
+    // Handle the filters logic here
+    console.log('Applied filters:', filters);
+  };
   return (
     <div>
       <Router>
@@ -31,7 +34,7 @@ const App = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/login" element={<Login/>} />
-        <Route path="/products/:productId" element={<MainProduct products={products} />} />
+        <Route path="/products/:productId" element={<MainProduct products={products}  />} />
 
         </Routes>
 
