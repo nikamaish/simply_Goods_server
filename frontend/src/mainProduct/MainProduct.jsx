@@ -83,7 +83,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 
 import './mainProduct.css';
-import { size } from 'lodash';
 
 const MainProduct = ({ products }) => {
   const { productId } = useParams();
@@ -99,20 +98,23 @@ const MainProduct = ({ products }) => {
     return <p>Loading...</p>;
   }
 
+  // Apply styling for single card with a minimum width
+  const cardStyle = filteredProducts.length === 1 ? { minWidth: '60%' } : {};
+
   return (
     <div>
       <h1>Main Product</h1>
       <div className="product-cards">
         {filteredProducts.map((product) => (
-          <div key={product.name} className="product-card">
+          <div key={product.name} className="product-card" style={cardStyle}>
             <img src={product.img} alt={product.name} />
             <div className="product-details">
               <h2>{product.name}</h2>
-              <h3 style={{fontSize:'15px', color:'#8c8c8c'}}>{product.colorType}</h3>
+              <h3 style={{ fontSize: '15px', color: '#8c8c8c' }}>{product.colorType}</h3>
               <div className='priceOff'>
-               <b><p style={{fontSize:'20px'}}> ₹ {product.price}</p></b>
-                <s style={{fontSize:'16px'}}> ₹ {product.cancelPrice}</s>
-                <p style={{color:'rgb(7, 180, 7)', fontSize:'18px'}}>{product.off}</p>
+                <b><p style={{ fontSize: '20px' }}> ₹ {product.price}</p></b>
+                <s style={{ fontSize: '16px' }}> ₹ {product.cancelPrice}</s>
+                <p style={{ color: 'rgb(7, 180, 7)', fontSize: '18px' }}>{product.off}</p>
               </div>
               {/* Display the number of stars as a digit with a single star icon */}
               <div className="stars">
@@ -127,4 +129,5 @@ const MainProduct = ({ products }) => {
 };
 
 export default MainProduct;
+
 
