@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+.env
+
+# macOS
+.DS_Store
+
+# IDEs
+*.vscode/
+
+# Compiled files
+*.log
+*.log.*
+*.gz
+
+# Dependency directories
+.venv/
