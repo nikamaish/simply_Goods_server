@@ -6,11 +6,15 @@ const Customer = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 require('dotenv').config();
+const jwt = require('jsonwebtoken');
+
 
 const generateRandomString = (length) => {
     return crypto.randomBytes(length).toString('hex');
   };
 
+
+  
 // what is generateRandomString is that it is a function that generates a random string of a given length. So we are going to use this function to generate a random string that we are going to use as the session key. So what is a session key is that it is a string that is used to sign the session ID cookie. So what is a session ID cookie is that it is a cookie that is used to store the session ID. So what is a session ID is that it is a unique identifier that is used to identify the session. So what is a session is that it is a place where we can store data that we want to persist across requests. So what is a request is that it is a message that is sent from the client to the server.
 
   
@@ -54,6 +58,18 @@ router.use(
       if (!fullname || !email || !password || !passwordConfirm) {
         return res.status(400).json({ errorMessage: 'Please enter all required fields.' });
       }
+
+      if (password.length < 6)
+      return res
+        .status(400)
+        .json({ errorMessage: 'Please enter a password of at least 6 characters.' });
+
+    if (password !== passwordConfirm) {
+      return res
+        .status(400)
+        .json({ errorMessage: 'Please enter the same password twice.' });
+    }
+
   
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
@@ -68,8 +84,19 @@ router.use(
   
     //   req.session.user = { _id: savedCustomer._id, fullname: savedCustomer.fullname, email: savedCustomer.email };
   
+    const token = jwt.sign({
+      user:savedCustomer._id
+  },process.env.JWT_SECRET);
 
-    req.session.user = Customer._id;
+  console.log(token);  
+  res.cookie("token",token,{
+    httpOnly:true,
+    secure:process.env.NODE_ENV === 'production',
+    sameSite:"none"
+});
+
+  
+  req.session.user = savedCustomer._id;
 // what we did over here is that we are storing the user id in the session and how it is different than above is that we are not storing the whole user object in the session, we are just storing the user id in the session and we are going to use that user id to fetch the user object from the database whenever we need it. So this is a more secure way of storing the user in the session.
 
       res.status(201).json(savedCustomer);
