@@ -99,7 +99,7 @@ router.use(
   req.session.user = savedCustomer._id;
 // what we did over here is that we are storing the user id in the session and how it is different than above is that we are not storing the whole user object in the session, we are just storing the user id in the session and we are going to use that user id to fetch the user object from the database whenever we need it. So this is a more secure way of storing the user in the session.
 
-      res.status(201).json(savedCustomer);
+      res.status(201).json({message: 'Customer registered successfully',savedCustomer});
     } 
     
     
@@ -109,6 +109,12 @@ router.use(
     }
   });
   
+
+
+
+
+
+
   router.post('/login', async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -117,32 +123,65 @@ router.use(
         return res.status(400).json({ errorMessage: 'Please enter both email and password.' });
       }
   
-      const customer = await Customer.findOne({ email });
+      const existingCustomer = await Customer.findOne({ email });
   
-      if (!customer || !(await bcrypt.compare(password, customer.passwordHash))) {
-        return res.status(401).json({ errorMessage: 'Invalid credentials.' });
+      if (!existingCustomer){
+        return res.status(401).json({errorMessage:"Wrong email or password"});
       }
-  
-      req.session.user = { _id: customer._id, fullname: customer.fullname, email: customer.email };
+
+      const passwordCorrect = await bcrypt.compare(password, existingCustomer.passwordHash);
+
+      if(!passwordCorrect){
+        return res.status(401).json({errorMessage:"Wrong email or password"})
+      }
+
+      req.session.user = { _id: existingCustomer._id, fullname: existingCustomer.fullname, email: existingCustomer.email };
     //   why we need to do it different bcz in register we only save the user id in the session but in login we are saving the whole user object in the session. So this is how we can store the user in the session.
     // because we are going to use the user object in the session to display the user's name and email in the navbar. So this is why we need to store the whole user object in the session.
     // it means when i login then then my name will be there in navbar and when i logout then my name will not be there in navbar is it right? yes
 
+    const token = jwt.sign({
+      user:existingCustomer._id
+  },process.env.JWT_SECRET);
+
+  res.cookie("token",token,{
+    httpOnly:true,
+    secure:process.env.NODE_ENV === 'production',
+    sameSite:"none"
+});
   
-      res.status(200).json({ message: 'Login successful' });
-    } catch (err) {
+res.status(200).json({ message: "Customer logged in successfully", user: { id: existingCustomer._id, email: existingCustomer.email } });
+    }
+    
+    
+    catch (err) {
       console.error(err);
       res.status(500).send();
     }
   });
   
 
+
+
+
+
   router.get('/logout', (req, res) => {
+
     try {
       req.session = null; // Clear the session data
+
+      res.cookie('token', '', {
+          httpOnly: true,
+          expires: new Date(0),
+          domain: 'localhost', // Adjust as needed, especially if using subdomains
+      }).send();
+
       res.status(200).json({ message: 'Logout successful' });
       console.log('User session cleared');
-    } catch (err) {
+  }
+  
+  
+  catch (err) {
       console.error(err);
       res.status(500).send();
     }
