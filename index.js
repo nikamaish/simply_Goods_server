@@ -26,9 +26,9 @@ const corsOptions = {
   
 
 
-// app.get('/', (req, res) => {
-//     res.send('It works!');
-// });
+app.get('/', (req, res) => {
+    res.send('It works!');
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
