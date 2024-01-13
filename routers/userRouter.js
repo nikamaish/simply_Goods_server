@@ -47,9 +47,8 @@ router.use(
         maxAge: 24 * 60 * 60 * 1000, // 1 day
         // what is maxAge is that it is the time in milliseconds that the cookie will expire after
 
-        store: new MongoStore({ url: process.env.MDB_URL }),
-
       },
+      store: new MongoStore({ url: process.env.MDB_URL }),
     })
   );
   
